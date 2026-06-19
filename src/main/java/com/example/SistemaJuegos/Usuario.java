@@ -9,13 +9,17 @@ public abstract class Usuario {
     protected String correo;
     protected TipoUsuario rol;
 
-    public Usuario(String codigo_unico,String cedula, String nombre,String apellido, String usuario, String correo, TipoUsuario rol){
-        this.codigo_unico = codigo_unico;
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.usuario= usuario;
-        this.correo=correo;
+    //public Usuario(String codigo_unico,String cedula, String nombre,String apellido, String usuario, String correo, TipoUsuario rol){
+      //  this.codigo_unico = codigo_unico;
+        //this.cedula = cedula;
+       // this.nombre = nombre;
+       // this.apellido = apellido;
+       // this.usuario= usuario;
+       // this.correo=correo;
+    //}
+    
+    public void menuOpciones(){
+        System.out.println(" 1. Consultar partidos ");
     }
     
     public void consultarEntradas(){
