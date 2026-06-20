@@ -1,9 +1,5 @@
 package com.example;
 
-/**
- * Hello world!
- *
- */
 public class Sistema 
 {
     public static void main( String[] args )
