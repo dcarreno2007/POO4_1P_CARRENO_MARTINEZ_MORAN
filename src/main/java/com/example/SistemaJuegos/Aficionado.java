@@ -1,30 +1,7 @@
 package com.example.SistemaJuegos;
 
 public class Aficionado extends Usuario{
-//asdlasdlkajsd
-//adasdasd
-//asdasdasd
-//asdadsads
-//asdasdasdasd
-//adsasdasd
 
-//adasdasd
-//asdasdasd
-//asdadsads
-//asdasdasdasd
-//adsasdasd
-
-//adasdasd
-//asdasdasd
-//asdadsads
-//asdasdasdasd
-//adsasdasd
-
-//adasdasd
-//asdasdasd
-//asdadsads
-//asdasdasdasd
-//adsasdasd
     private String paisFav;
     private String celular;
 
@@ -32,7 +9,16 @@ public class Aficionado extends Usuario{
         System.out.println("Codigo: " + codigo_unico);
         System.out.println("Partido: ");
         System.out.println("Fecha: " );
+
     }
+    
+    //Retorna Compra: 
+    //Hay que hacer constructor de compra
+    // public compra comprar(Partido partido, Zona zona, int Cantidad){}
 
+    //Retorna Compra:
+    //Hay que usar constructor sobrecarga de compra:
+    // public compra (Kit kit){}
 
+    public void consultarEntradas(){}
 }
