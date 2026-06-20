@@ -1,6 +1,30 @@
 package com.example.SistemaJuegos;
 
 public class Aficionado extends Usuario{
+//asdlasdlkajsd
+//adasdasd
+//asdasdasd
+//asdadsads
+//asdasdasdasd
+//adsasdasd
+
+//adasdasd
+//asdasdasd
+//asdadsads
+//asdasdasdasd
+//adsasdasd
+
+//adasdasd
+//asdasdasd
+//asdadsads
+//asdasdasdasd
+//adsasdasd
+
+//adasdasd
+//asdasdasd
+//asdadsads
+//asdasdasdasd
+//adsasdasd
     private String paisFav;
     private String celular;
 
