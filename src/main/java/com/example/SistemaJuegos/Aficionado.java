@@ -5,8 +5,8 @@ public class Aficionado extends Usuario{
     private String celular;
 
 
-    public Aficionado(String codigo_unico,String cedula, String nombres,String apellidos, String usuario, String contra, String correo, TipoUsuario rol, String paisFav, String celular){
-        super(codigo_unico, cedula, nombres, apellidos, usuario, contra, correo, rol);
+    public Aficionado(String codigoUnico,String cedula, String nombres,String apellidos, String usuario, String contra, String correo, TipoUsuario rol, String paisFav, String celular){
+        super(codigoUnico, cedula, nombres, apellidos, usuario, contra, correo, rol);
         this.paisFav = paisFav;
         this.celular = celular;
     }

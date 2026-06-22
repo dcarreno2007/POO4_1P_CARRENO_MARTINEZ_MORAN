@@ -10,8 +10,8 @@ public abstract class Usuario {
     protected String correo;
     protected TipoUsuario rol;
 
-    public Usuario(String codigo_unico,String cedula, String nombres,String apellidos, String usuario,String contra, String correo, TipoUsuario rol){
-       this.codigoUnico = codigo_unico;
+    public Usuario(String codigoUnico,String cedula, String nombres,String apellidos, String usuario,String contra, String correo, TipoUsuario rol){
+       this.codigoUnico = codigoUnico;
         this.cedula = cedula;
        this.nombres = nombres;
        this.apellidos = apellidos;
