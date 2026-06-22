@@ -1,32 +1,84 @@
 package com.example.SistemaJuegos;
 
 public abstract class Usuario {
-    protected String codigo_unico;
+    protected String codigoUnico;
     protected String cedula;
-    protected String nombre;
-    protected String apellido;
+    protected String nombres;
+    protected String apellidos;
     protected String usuario;
+    protected String contrasenia;
     protected String correo;
     protected TipoUsuario rol;
 
-    //public Usuario(String codigo_unico,String cedula, String nombre,String apellido, String usuario, String correo, TipoUsuario rol){
-      //  this.codigo_unico = codigo_unico;
-        //this.cedula = cedula;
-       // this.nombre = nombre;
-       // this.apellido = apellido;
-       // this.usuario= usuario;
-       // this.correo=correo;
-    //}
-    
-    public void menuOpciones(){
-        System.out.println(" 1. Consultar partidos ");
+    public Usuario(String codigo_unico,String cedula, String nombres,String apellidos, String usuario,String contra, String correo, TipoUsuario rol){
+       this.codigoUnico = codigo_unico;
+        this.cedula = cedula;
+       this.nombres = nombres;
+       this.apellidos = apellidos;
+       this.usuario= usuario;
+       this.contrasenia = contra;
+       this.correo=correo;
     }
+    public abstract void consultarEntradas();
     
-    public void consultarEntradas(){
+    
+    public String getCodigoUnico(){ 
+        return codigoUnico;
+    }
+    public String getCedula() { 
+        return cedula; 
+    }
+    public String getNombres() { 
+        return nombres; 
+    }
+    public String getApellidos() { 
+        return apellidos; 
+    }
+    public String getNombreUsuario() { 
+        return usuario; 
+    }
+    public String getContrasena() { 
+        return contrasenia; 
+    }
+    public String getCorreo() { 
+        return correo; 
+    }
+    public TipoUsuario getRol() { 
+        return rol; 
+    }
 
+
+    public void setCodigoUnico(String codigoUnico) { 
+        this.codigoUnico = codigoUnico; 
     }
-//    @Override
-//    public String toString(){}
+    public void setCedula(String cedula) { 
+        this.cedula = cedula; 
+    }
+    public void setNombres(String nombres) { 
+        this.nombres = nombres; 
+    }
+    public void setApellidos(String apellidos) { 
+        this.apellidos = apellidos; 
+    }
+    public void setNombreUsuario(String nombreUsuario) { 
+        this.usuario = nombreUsuario; 
+    }
+    public void setContrasena(String contrasena) { 
+        this.contrasenia = contrasena; 
+    }
+    public void setCorreo(String correo) { 
+        this.correo = correo; 
+    }
+    public void setRol(TipoUsuario rol) { 
+        this.rol = rol; 
+    }
+    
+    
+   @Override
+   public String toString(){
+    return "Usuario{" +
+        "codigoUnico = " + codigoUnico + " - cedula = " + cedula  + " - nombres = " + nombres + " - apellidos = " + apellidos + " - nombreUsuario = " + usuario + " - correo = " + correo + " - rol = " + rol.name();
+   }
 
 
 }
