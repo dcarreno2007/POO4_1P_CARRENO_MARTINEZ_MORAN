@@ -44,7 +44,4 @@ public class Kit {
     public boolean validarDisponibilidad() {
         return disponibles > 0;
     }
-
-    public void actualizarDisponibilidad() {
-    }
 }
