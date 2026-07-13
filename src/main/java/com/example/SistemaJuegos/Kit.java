@@ -33,11 +33,11 @@ public class Kit {
         this.descripcion = descripcion;
     }
 
-    public ArrayList getPartidosIncluidos() {
+    public ArrayList<Partido> getPartidosIncluidos() {
         return this.partidosIncluidos;
     }
 
-    public void setPartidosIncluidos(ArrayList partidosIncluidos) {
+    public void setPartidosIncluidos(ArrayList<Partido> partidosIncluidos) {
         this.partidosIncluidos = partidosIncluidos;
     }
 
