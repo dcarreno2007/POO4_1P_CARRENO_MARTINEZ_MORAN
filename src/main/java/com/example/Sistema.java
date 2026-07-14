@@ -18,11 +18,6 @@ public class Sistema{
         s.cargarPartidos("C:\\Users\\USER\\POO4_1P_CARRENO_MARTINEZ_MORAN\\src\\main\\java\\com\\example\\SistemaJuegos\\partidos.txt");
         s.cargarKits("src/main/java/com/example/SistemaJuegos/kits.txt");
 
-        System.out.println("=== PARTIDOS ===");
-        s.mostrarPartidos();
-
-        System.out.println("\n=== KITS ===");
-        s.mostrarKits();
     }
 
     public void cargarPartidos(String ruta) {
