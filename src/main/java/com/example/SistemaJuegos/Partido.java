@@ -35,7 +35,7 @@ public class Partido {
         this.fase = fase;
     }
 
-    // GETTERS
+    
     public String getCodigo() {
         return codigo;
     }
