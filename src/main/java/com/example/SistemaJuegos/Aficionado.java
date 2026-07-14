@@ -7,6 +7,35 @@ public class Aficionado extends Usuario{
     private String paisFav;
     private String celular;
 
+<<<<<<< HEAD
+
+    public Aficionado(String codigoUnico,String cedula, String nombres,String apellidos, String usuario, String contra, String correo, TipoUsuario rol, String paisFav, String celular){
+        super(codigoUnico, cedula, nombres, apellidos, usuario, contra, correo, rol);
+        this.paisFav = paisFav;
+        this.celular = celular;
+    }
+
+    public String getPaisFav(){
+        return paisFav;
+    }
+
+    public String getCelular(){
+        return celular;
+    }
+
+    public void setPaisFav(String pais){
+        this.paisFav = pais;
+    }
+
+    public void setCelular(String celular){
+        this.celular = celular;
+    }
+
+
+    @Override
+    public void consultarEntradas(){
+        System.out.println("Codigo: " + codigoUnico);
+=======
     public Aficionado(String codigo_unico, String cedula, String nombres, String apellidos, String celular, String paisFav, String usuario, String correo) {
         super(codigo_unico, cedula, nombres, apellidos, usuario, correo, TipoUsuario.AFICIONADOS);
         this.celular = celular;
@@ -21,6 +50,7 @@ public class Aficionado extends Usuario{
     
     public void consultarPartidos(){
         System.out.println("Codigo: " + codigo_unico);
+>>>>>>> c0c1aa5633d85389bd98fd13e74032bc4e20036b
         System.out.println("Partido: ");
         System.out.println("Fecha: " );
     }
@@ -44,6 +74,12 @@ public class Aficionado extends Usuario{
             e.printStackTrace();
         }
         return aficionados;
+    }
+
+
+    @Override
+    public String toString() {
+        return super.toString() + " - pais favorito = " + this.paisFav + " - celular = " + this.celular;
     }
 
 
