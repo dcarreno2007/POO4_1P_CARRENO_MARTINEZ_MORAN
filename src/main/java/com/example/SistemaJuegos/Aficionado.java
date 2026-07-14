@@ -1,7 +1,5 @@
 package com.example.SistemaJuegos;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 
 public class Aficionado extends Usuario{
@@ -49,42 +47,97 @@ public class Aficionado extends Usuario{
 
             System.out.println();
             System.out.println("   Zonas disponibles:");
-            System.out.println("   - GENERAL       | Disponibles: " + partido.getEntradasGeneral());
-            System.out.println("   - PREFERENCIAL  | Disponibles: " + partido.getEntradasPreferencial());
-            System.out.println("   - VIP           | Disponibles: " + partido.getEntradasVIP());
+            System.out.println("   - GENERAL       | Disponibles: " + partido.getEntradasGeneral() + " | Precio: $" + Partido.getPrecioGeneral());
+            System.out.println("   - PREFERENCIAL  | Disponibles: " + partido.getEntradasPreferencial() + " | Precio: $" + Partido.getPrecioPreferencial());
+            System.out.println("   - VIP           | Disponibles: " + partido.getEntradasVIP() + " | Precio: $" + Partido.getPrecioVIP());
 
+            System.out.println();
             System.out.println("--------------------------------------------------");
             contador++;
         }
     }
 
+    public Compra comprar(Partido partido, Zona zona, int cantidad) {
 
-    @Override
-    public void consultarEntradas(){
-        System.out.println("Codigo: " + codigoUnico);
-        System.out.println("Partido: ");
-        System.out.println("Fecha: " );
+        // Validar si el partido existe
+        if (partido == null) {
+            System.out.println("El partido seleccionado no existe.");
+            return null;
+        }
+
+        // Validar stock de entradas disponibles para la zona seleccionada
+        if (!partido.validarStock(zona, cantidad)) {
+            System.out.println("No hay suficientes entradas disponibles para la zona seleccionada.");
+            return null;
+        }
+
+        // Obtener el precio de la entrada según la zona
+        double precioUnitario = partido.obtenerPrecioEntrada(zona.name());
+
+        // Calcular el valor total a pagar
+        double valorPagado = precioUnitario * cantidad;
+        
+        System.out.printf("Valor total a pagar: $%.2f%n", valorPagado);
+
+        // Crear compra
+        Compra compra = new Compra(TipoCompra.ENTRADA, partido.getCodigo(), cantidad, valorPagado, this.codigoUnico, zona);
+
+
+        // Actualizar disponibilidad en memoria
+        partido.actualizarDisponibilidad(zona, cantidad);
+
+        // Retornar la compra realizada
+        return compra;
     }
 
-    public static ArrayList<Aficionado> cargarAficionados(String ruta) {
-        ArrayList<Aficionado> aficionados = new ArrayList<>();
-        try (BufferedReader bf = new BufferedReader(new FileReader(ruta))) {
-            String line;
-            line = bf.readLine();
-            while ((line = bf.readLine()) != null) {
-                String [] aficionadoL = line.split("|");
-                String CodigoUnico = aficionadoL[0];
-                String Cedula = aficionadoL[1];
-                String Nombres = aficionadoL[2];
-                String Apellidos = aficionadoL[3];
-                String Celular = aficionadoL[5];
-                String PaisFavorito = aficionadoL[6];
-                aficionados.add(new Aficionado(CodigoUnico, Cedula, Nombres, Apellidos, Celular, PaisFavorito));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public Compra comprar(Kit kit) {
+
+        // Validar si el kit existe
+        if (kit == null) {
+            System.out.println("El kit seleccionado no existe.");
+            return null;
         }
-        return aficionados;
+
+        // Validar disponibilidad del kit
+        if (!kit.validarDisponibilidad()) {
+            System.out.println("El kit no está disponible.");
+            return null;
+        }
+
+        // Calcular el valor total a pagar
+        double valorPagado = kit.getPrecio();
+        
+        // Crear compra
+        Compra compra = new Compra(TipoCompra.KIT, kit.getCodigo(), 1, valorPagado, this.codigoUnico);
+
+        kit.actualizarDisponibilidad();
+        
+        // Retornar la compra realizada
+        return compra;
+    }
+
+    @Override
+    public void consultarEntradas(ArrayList<Compra> compras) {
+        boolean tieneCompras = false;
+
+        System.out.println("Entradas compradas por el aficionado " + this.getNombres() + " " + this.getApellidos() + ":");
+
+        for (Compra compra : compras) {
+            if (compra.getCodigoAficionado().equals(this.codigoUnico)) {
+                System.out.println("Código de compra: " + compra.getCodigo());
+                System.out.println("Tipo: " + compra.getTipo());
+                System.out.println("Código de referencia: " + compra.getCodigoReferencia());
+                System.out.println("Fecha: " + compra.getFechaCompra());
+                System.out.println("Cantidad: " + compra.getCantidad());
+                System.out.println("Zona: " + (compra.getZona() != null ? compra.getZona() : "No aplica"));
+                System.out.println("Valor pagado: $" + compra.getValorPagado());
+                tieneCompras = true;
+            }
+        }
+        if (!tieneCompras) {
+            System.out.println("No se encontraron compras para este aficionado.");
+        }
+
     }
 
 
