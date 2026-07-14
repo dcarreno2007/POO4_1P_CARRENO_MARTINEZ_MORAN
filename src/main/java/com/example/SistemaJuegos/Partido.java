@@ -12,11 +12,16 @@ public class Partido {
     private int entradasPreferencial;
     private int entradasVIP;
     private String fase;
-    private static double PRECIOGENERAL = 50.0;
-    private static double PRECIOPREFERENCIAL = 100.0; 
-    private static double PRECIOVIP = 200.0; 
 
-    public Partido(String codigo, String seleccionLocal, String seleccionVisitante, String fecha, String estadio, int capacidad, String ciudad, int entradasGeneral, int entradasPreferencial, int entradasVIP, String fase) {
+    private static final double PRECIOGENERAL = 50.0;
+    private static final double PRECIOPREFERENCIAL = 100.0; 
+    private static final double PRECIOVIP = 200.0; 
+
+    public Partido(String codigo, String seleccionLocal, String seleccionVisitante,
+                   String fecha, String estadio, int capacidad, String ciudad,
+                   int entradasGeneral, int entradasPreferencial, int entradasVIP,
+                   String fase) {
+
         this.codigo = codigo;
         this.seleccionLocal = seleccionLocal;
         this.seleccionVisitante = seleccionVisitante;
@@ -30,82 +35,112 @@ public class Partido {
         this.fase = fase;
     }
 
+    // GETTERS
     public String getCodigo() {
         return codigo;
     }
+
     public String getSeleccionLocal() {
         return seleccionLocal;
     }
+
     public String getSeleccionVisitante() {
         return seleccionVisitante;
     }
+
     public String getFecha() {
         return fecha;
     }
+
     public String getEstadio() {
         return estadio;
     }
+
     public int getCapacidad() {
         return capacidad;
     }
+
     public String getCiudad() {
         return ciudad;
     }
+
     public int getEntradasGeneral() {
         return entradasGeneral;
     }
+
     public int getEntradasPreferencial() {
         return entradasPreferencial;
     }
+
     public int getEntradasVIP() {
         return entradasVIP;
     }
+
+
     public String getFase() {
         return fase;
     }
+
+    
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
     public void setSeleccionLocal(String seleccionLocal) {
         this.seleccionLocal = seleccionLocal;
     }
+
     public void setSeleccionVisitante(String seleccionVisitante) {
         this.seleccionVisitante = seleccionVisitante;
     }
+
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+
     public void setEstadio(String estadio) {
         this.estadio = estadio;
     }
+
     public void setCapacidad(int capacidad) {
         this.capacidad = capacidad;
     }
+
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
     public void setEntradasGeneral(int entradasGeneral) {
         this.entradasGeneral = entradasGeneral;
     }
+
     public void setEntradasPreferencial(int entradasPreferencial) {
         this.entradasPreferencial = entradasPreferencial;
     }
+
     public void setEntradasVIP(int entradasVIP) {
         this.entradasVIP = entradasVIP;
     }
+
+
     public void setFase(String fase) {
         this.fase = fase;
     }
+
+    
     public static double getPrecioGeneral() {
         return PRECIOGENERAL;
     }
+
     public static double getPrecioPreferencial() {
         return PRECIOPREFERENCIAL;
     }
+
     public static double getPrecioVIP() {
         return PRECIOVIP;
     }
 
+  
     public double obtenerPrecioEntrada(String tipoEntrada) {
         switch (tipoEntrada.toLowerCase()) {
             case "general":
@@ -119,7 +154,8 @@ public class Partido {
         }
     }
 
-    public int ObtenerDisponibilidad(Zona zona) {
+    
+    public int obtenerDisponibilidad(Zona zona) {
         switch (zona) {
             case GENERAL:
                 return entradasGeneral;
@@ -132,11 +168,18 @@ public class Partido {
         }
     }
 
-    public boolean validarStock(Zona zona, int cantidad){
-        return ObtenerDisponibilidad(zona) >= cantidad && cantidad > 0;
+    
+    public boolean validarStock(Zona zona, int cantidad) {
+        return obtenerDisponibilidad(zona) >= cantidad && cantidad > 0;
     }
 
-    public void actualizarDisponibilidad (Zona zona, int cantidad){
+    
+    public void actualizarDisponibilidad(Zona zona, int cantidad) {
+        if (!validarStock(zona, cantidad)) {
+            System.out.println("No hay suficiente stock");
+            return;
+        }
+
         switch (zona) {
             case GENERAL:
                 entradasGeneral -= cantidad;
@@ -147,10 +190,10 @@ public class Partido {
             case VIP:
                 entradasVIP -= cantidad;
                 break;
-            default:
-                throw new IllegalArgumentException("Zona no válida: " + zona);
         }
     }
+
+    @Override
     public String toString() {
         return "Partido{" +
                 "codigo='" + codigo + '\'' +
@@ -163,12 +206,7 @@ public class Partido {
                 ", entradasGeneral=" + entradasGeneral +
                 ", entradasPreferencial=" + entradasPreferencial +
                 ", entradasVIP=" + entradasVIP +
-                ", fase='" + fase + '\'' +
-                '}';    
-
+                ", fase=" + fase +
+                '}';
     }
-   
-    
-
-
 }
