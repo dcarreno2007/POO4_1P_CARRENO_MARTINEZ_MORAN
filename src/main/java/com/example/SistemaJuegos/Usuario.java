@@ -1,42 +1,89 @@
 package com.example.SistemaJuegos;
 
+import java.util.ArrayList;
+
 public abstract class Usuario {
-    protected String codigo_unico;
+    protected String codigoUnico;
     protected String cedula;
     protected String nombre;
     protected String apellido;
     protected String usuario;
+    protected String contrasena;
     protected String correo;
     protected TipoUsuario rol;
 
-    public Usuario(String codigo_unico,String cedula, String nombre,String apellido, String usuario, String correo, TipoUsuario rol){
-        this.codigo_unico = codigo_unico;
+    public Usuario(String codigoUnico, String cedula, String nombre, String apellido, String usuario, String contrasena, String correo, TipoUsuario rol){
+        // Constructor para inicializar los atributos del usuario
+        this.codigoUnico = codigoUnico;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.usuario= usuario;
-        this.correo=correo;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.correo = correo;
+        this.rol = rol;
     }
 
-    public TipoUsuario getRol(){
-        return this.rol;
-    }
-    public String getUsuario(){
-        return this.usuario;
-    }
-    public String getCorreo(){
-        return this.correo;
-    }
-    
-    public void menuOpciones(){
-        System.out.println(" 1. Consultar partidos ");
-    }
-    
-    public void consultarEntradas(){
+    // Getters y setters para los atributos del usuario
 
+    public String getCodigoUnico() {
+        return codigoUnico;
     }
-//    Retorna String:
-//    public String toString(){}
+
+    public void setCodigoUnico(String codigoUnico) {
+        this.codigoUnico = codigoUnico;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public TipoUsuario getRol() {
+        return rol;
+    }
+
+    public void setRol(TipoUsuario rol) {
+        this.rol = rol;
+    }
+
+    
+    // Método abstracto para consultar entradas, que debe ser implementado por las subclases
+
+    public abstract void consultarEntradas(ArrayList<Compra> compras);
+
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "Código='" + codigoUnico + '\'' +
+                ", cédula='" + cedula + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", correo='" + correo + '\'' +
+                ", rol=" + rol +
+                '}';
+    }
 
 
 }

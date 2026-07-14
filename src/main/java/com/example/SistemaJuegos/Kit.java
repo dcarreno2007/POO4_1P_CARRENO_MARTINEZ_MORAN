@@ -1,20 +1,47 @@
 package com.example.SistemaJuegos;
-
 import java.util.ArrayList;
 
 public class Kit {
     private String codigo;
     private String nombre;
     private String descripcion;
-    private ArrayList<Partido> partidosIncluidos;
+    private ArrayList <Partido> partidosIncluidos;
     private double precio;
     private int disponibles;
 
-    //Retorna boolean...
-    public void validarDisponibilidad(){}
+    public String getCodigo() {
+        return this.codigo;
+    }
 
-    public void actualizarDisponibilidad(){}
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
 
-    //Retorna String...
-    //public String toString(){}
+    public String getNombre() {
+        return this.codigo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return this.descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public ArrayList<Partido> getPartidosIncluidos() {
+        return this.partidosIncluidos;
+    }
+
+    public void setPartidosIncluidos(ArrayList<Partido> partidosIncluidos) {
+        this.partidosIncluidos = partidosIncluidos;
+    }
+
+    public boolean validarDisponibilidad() {
+        return disponibles > 0;
+    }
 }
