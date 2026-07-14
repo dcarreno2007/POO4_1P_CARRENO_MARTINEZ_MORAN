@@ -66,7 +66,4 @@ public class ManejoArchivos {
         }
     }
 
-    public void cargarPartidos(String ruta) {
-        ArrayList<Partido> partidos = new ArrayList<>();
-    }
 }
