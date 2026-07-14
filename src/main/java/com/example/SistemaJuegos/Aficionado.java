@@ -1,13 +1,13 @@
 package com.example.SistemaJuegos;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Aficionado extends Usuario{
     private String paisFav;
     private String celular;
 
-<<<<<<< HEAD
 
     public Aficionado(String codigoUnico,String cedula, String nombres,String apellidos, String usuario, String contra, String correo, TipoUsuario rol, String paisFav, String celular){
         super(codigoUnico, cedula, nombres, apellidos, usuario, contra, correo, rol);
@@ -31,26 +31,37 @@ public class Aficionado extends Usuario{
         this.celular = celular;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " - pais favorito = " + this.paisFav + " - celular = " + this.celular;
+    }
+
+    public void consultarPartidos(ArrayList<Partido> partidos) {
+        int contador = 1;
+        System.out.println("Partidos disponibles:");
+        for (Partido partido : partidos) {
+            System.out.println(contador + ". Código: " + partido.getCodigo());
+            System.out.println("   Partido: " + partido.getSeleccionLocal() + " vs " + partido.getSeleccionVisitante());
+            System.out.println("   Fecha: " + partido.getFecha());
+            System.out.println("   Estadio: " + partido.getEstadio());
+            System.out.println("   Ciudad: " + partido.getCiudad());
+            System.out.println("   Fase: " + partido.getFase());
+
+            System.out.println();
+            System.out.println("   Zonas disponibles:");
+            System.out.println("   - GENERAL       | Disponibles: " + partido.getEntradasGeneral());
+            System.out.println("   - PREFERENCIAL  | Disponibles: " + partido.getEntradasPreferencial());
+            System.out.println("   - VIP           | Disponibles: " + partido.getEntradasVIP());
+
+            System.out.println("--------------------------------------------------");
+            contador++;
+        }
+    }
+
 
     @Override
     public void consultarEntradas(){
         System.out.println("Codigo: " + codigoUnico);
-=======
-    public Aficionado(String codigo_unico, String cedula, String nombres, String apellidos, String celular, String paisFav, String usuario, String correo) {
-        super(codigo_unico, cedula, nombres, apellidos, usuario, correo, TipoUsuario.AFICIONADOS);
-        this.celular = celular;
-        this.paisFav = paisFav;
-    }
-
-    public Aficionado(String codigo_unico, String cedula, String nombres, String apellidos, String celular, String paisFav) {
-        super(codigo_unico, cedula, nombres, apellidos, null, null, TipoUsuario.AFICIONADOS);
-        this.celular = celular;
-        this.paisFav = paisFav;
-    }
-    
-    public void consultarPartidos(){
-        System.out.println("Codigo: " + codigo_unico);
->>>>>>> c0c1aa5633d85389bd98fd13e74032bc4e20036b
         System.out.println("Partido: ");
         System.out.println("Fecha: " );
     }
@@ -76,11 +87,6 @@ public class Aficionado extends Usuario{
         return aficionados;
     }
 
-
-    @Override
-    public String toString() {
-        return super.toString() + " - pais favorito = " + this.paisFav + " - celular = " + this.celular;
-    }
 
 
 }
