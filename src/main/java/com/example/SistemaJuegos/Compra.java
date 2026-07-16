@@ -1,5 +1,6 @@
 package com.example.SistemaJuegos;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Compra {
@@ -29,6 +30,17 @@ public class Compra {
         this(tipoCompra, codigoRef, cantidad, valorPagado, codigoAficionado, null);
     }
 
+    public Compra(String codigo, TipoCompra tipoCompra, String codigoRef, Date fechaCompra, int cantidad, double valorPagado, String codigoAficionado, Zona zona) {
+        this.codigo = codigo;
+        this.tipo = tipoCompra;
+        this.codigoReferencia = codigoRef;
+        this.fechaCompra = fechaCompra;
+        this.cantidad = cantidad;
+        this.valorPagado = valorPagado;
+        this.codigoAficionado = codigoAficionado;
+        this.zona = zona;
+    }
+
     public static String generarCodigo(){
         return String.format("C%03d", contadorCompras);
     }
@@ -41,7 +53,11 @@ public class Compra {
         } else {
             zonaTexto = "SIN_ZONA";
         }
-        return codigo + "|" + tipo + "|" + codigoReferencia + "|" + fechaCompra + "|" + cantidad + "|" + valorPagado + "|" + codigoAficionado + "|" + zonaTexto;
+
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaTexto = formato.format(fechaCompra);
+
+        return codigo + "|" + tipo + "|" + codigoReferencia + "|" + fechaTexto + "|" + cantidad + "|" + valorPagado + "|" + codigoAficionado + "|" + zonaTexto;
     }
 
     public String getCodigo(){
