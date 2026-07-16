@@ -2,6 +2,14 @@ package com.example.SistemaJuegos;
 
 import java.util.ArrayList;
 
+/**
+ * Representa a un usuario general del sistema y contiene
+ * la información común de aficionados y organizadores.
+ *
+ * @author Daniel Carreño
+ * @version 1.0
+ */
+
 public abstract class Usuario {
     protected String codigoUnico;
     protected String cedula;
@@ -11,6 +19,19 @@ public abstract class Usuario {
     protected String contrasenia;
     protected String correo;
     protected TipoUsuario rol;
+
+    /**
+     * Crea un usuario con sus datos personales y credenciales.
+     *
+     * @param codigoUnico código único del usuario
+     * @param cedula número de cédula del usuario
+     * @param nombres nombres del usuario
+     * @param apellidos apellidos del usuario
+     * @param usuario nombre utilizado para iniciar sesión
+     * @param contrasenia contraseña del usuario
+     * @param correo dirección de correo electrónico
+     * @param rol tipo de usuario dentro del sistema
+     */
 
     public Usuario(String codigoUnico,String cedula, String nombres,String apellidos, String usuario,String contrasenia, String correo, TipoUsuario rol){
        this.codigoUnico = codigoUnico;
@@ -23,7 +44,11 @@ public abstract class Usuario {
        this.rol = rol;
     }
 
-    // Método abstracto para consultar entradas, que debe ser implementado por las subclases
+    /**
+     * Consulta las compras de entradas relacionadas con el usuario.
+     *
+     * @param compras lista de compras registradas en el sistema
+     */
 
     public abstract void consultarEntradas(ArrayList<Compra> compras);
 
@@ -80,8 +105,13 @@ public abstract class Usuario {
         this.rol = rol; 
     }
     
-    // Método para mostrar la información del usuario
-   @Override
+    /**
+     * Devuelve una representación en texto de los datos del usuario.
+     *
+     * @return cadena con la información del usuario
+     */
+
+    @Override
    public String toString(){
     return "Usuario{" +
         "codigoUnico = " + codigoUnico + " - cedula = " + cedula  + " - nombres = " + nombres + " - apellidos = " + apellidos + " - usuario = " + usuario + " - correo = " + correo + " - rol = " + rol + "}";

@@ -85,11 +85,5 @@ public class Organizador extends Usuario {
 
         }
         return new Reporte(new Date(), totalCompras, totalEntradas, totalKits, montoTotal);
-    }
-
-
-    
-
-    
-
+    }  
 }
