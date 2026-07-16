@@ -1,10 +1,12 @@
 package com.example.SistemaJuegos;
 
+import java.util.Date;
+
 public class Partido {
     private String codigo;
     private String seleccionLocal;
     private String seleccionVisitante;
-    private String fecha;
+    private Date fecha;
     private String estadio;
     private int capacidad;
     private String ciudad;
@@ -18,7 +20,7 @@ public class Partido {
     private static final double PRECIOVIP = 200.0; 
 
     public Partido(String codigo, String seleccionLocal, String seleccionVisitante,
-                   String fecha, String estadio, int capacidad, String ciudad,
+                   Date fecha, String estadio, int capacidad, String ciudad,
                    int entradasGeneral, int entradasPreferencial, int entradasVIP,
                    String fase) {
 
@@ -48,7 +50,7 @@ public class Partido {
         return seleccionVisitante;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -94,7 +96,7 @@ public class Partido {
         this.seleccionVisitante = seleccionVisitante;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
@@ -209,4 +211,6 @@ public class Partido {
                 ", fase=" + fase +
                 '}';
     }
+
+
 }

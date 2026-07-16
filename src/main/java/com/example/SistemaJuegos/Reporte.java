@@ -16,13 +16,15 @@ public class Reporte {
         this.montoTotal = montoTotal;
     }
 
-    public String generarRessumen(){
-        String a = "Fecha de Generación: " + fechaGen + "\n" +
-                "Total de Compras: " + totalCompras + "\n" +
-                "Total de Entradas: " + totalEntradas + "\n" +
-                "Total de Kits: " + totalKits + "\n" +
-                "Monto Total: " + montoTotal;
-                return a;
+    public String generarResumen(){
+        String r = "===== GENERAR REPORTE DE VENTAS =====\n\n"
+                + "Resumen de ventas registradas:\n\n"
+                + "Total de compras: " + totalCompras + "\n\n"
+                + "Compras por tipo:\n\n"
+                + "Entradas: " + totalEntradas + "\n"
+                + "Kits: " + totalKits + "\n\n"
+                + "Monto total recaudado:\n" + "$" + montoTotal;
+                return r;
     }
     @Override
     public String toString() {
