@@ -1,16 +1,18 @@
-## Hi there 👋
+# Proyecto de Programación Orientada a Objetos
 
-<!--
-**dcarreno2007/dcarreno2007** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Proyecto académico desarrollado en Java para aplicar conceptos de Programación Orientada a Objetos.
 
-Here are some ideas to get you started:
+## Tecnologías
+- Java
+- Maven
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Conceptos aplicados
+- Clases y objetos
+- Encapsulamiento
+- Herencia
+- Polimorfismo
+- Manejo de colecciones
+- Organización del proyecto con Maven
+
+## Descripción
+El proyecto fue desarrollado como parte de una asignatura universitaria y tiene como objetivo aplicar los principales conceptos de POO mediante la implementación de distintas clases y funcionalidades.
